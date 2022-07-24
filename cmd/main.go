@@ -1,7 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"kopever/timeline/internal/router"
+
+	"github.com/labstack/echo/v4"
+)
 
 func main() {
-	fmt.Println("Hello, world!")
+	e := echo.New()
+
+	router.Init(e)
+
+	e.Logger.Fatal(e.Start(":1323"))
 }
